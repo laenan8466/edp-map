@@ -1,0 +1,13 @@
+{
+  "name": "cache_acdc_final",
+  "version": "1.1.0",
+  "description": "",
+  "attribution": "<a href=\"https://www.maptiler.com/engine/\">Rendered with MapTiler Engine</a>, non-commercial use only",
+  "type": "overlay",
+  "format": "png",
+  "minzoom": "14",
+  "maxzoom": "20",
+  "scale": "1.000000",
+  "bounds": [9.79550971, 52.31783156, 9.80690746, 52.32427980],
+  "profile": "mercator"
+}
