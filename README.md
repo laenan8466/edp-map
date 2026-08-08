@@ -24,7 +24,7 @@ edp-map/
 The map becomes reachable at:
 
 ```
-https://laenan8466.github.io/edp-map/edp-map/{SUBFOLDER_NAME}/
+https://laenan8466.github.io/edp-map/{SUBFOLDER_NAME}/
 ```
 
 ## Git LFS
