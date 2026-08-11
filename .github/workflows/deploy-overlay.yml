@@ -8,26 +8,27 @@ permissions:
   pages: write
   id-token: write
 
+concurrency:
+  group: "pages"
+  cancel-in-progress: true
+
 jobs:
   deploy:
     runs-on: [self-hosted, edp-overlay]
 
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
-      - name: Test Runner
-        shell: powershell
-        run: |
-          Write-Host "Runner funktioniert."
-          Write-Host "Computer: $env:COMPUTERNAME"
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
 
-      - name: Test Overlay Directory
-        shell: powershell
-        run: |
-          $path = "C:\EDP\Overlays\_github_test"
+      - name: Upload test overlay
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: C:\EDP\Overlays\_github_test
 
-          if (-not (Test-Path $path)) {
-              throw "Overlay-Testordner nicht gefunden: $path"
-          }
-
-          Get-ChildItem $path -Recurse
-
-          Write-Host "Overlay-Testordner gefunden."
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
